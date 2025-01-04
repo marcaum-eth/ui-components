@@ -3,58 +3,55 @@ import { fn } from "@storybook/test";
 
 import { Profile } from ".";
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+
 const meta = {
   title: "Data Display/Profile",
   component: Profile,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
+
     layout: "centered",
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
+
   tags: ["autodocs"],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+ 
   argTypes: {
-    backgroundColor: { control: "color" },
+    avatar: { control: "text" },
+    name: { control: "text" },
+    phone: { control: "text" },
+    location: { control: "text" },
+    wallet: { control: "text" },
+    registryDate: { control: "date" },
+    type: { control: "radio" },
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
+
 } satisfies Meta<typeof Profile>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
-  args: {
-    primary: true,
-    label: "Profile",
-  },
-};
 
-export const Secondary: Story = {
+export const Public: Story = {
   args: {
-    label: "Profile",
-  },
-};
+    avatar: "https://picsum.photos/188/188",
+    name: "Palms.xyz",
+    phone: "1 (312) 499 - 2983",
+    location: "Kassanda, Uganda",
+    wallet: "0x3f649DbFAFBE454940B8a82c5058b8d176dD3871",
+    email: "palms@greenpill.builders",
+    type: "public",
+    registryDate: new Date(),
+  }
+}
 
-export const Large: Story = {
+export const Private: Story = {
   args: {
-    size: "large",
-    label: "Profile",
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: "small",
-    label: "Profile",
-  },
-};
-
-export const Card: Story = {
-  args: {
-    primary: false,
-    label: "Profile",
-  },
+    avatar: "https://picsum.photos/188/188",
+    name: "Palms.xyz",
+    phone: "1 (312) 499 - 2983",
+    location: "Kassanda, Uganda",
+    wallet: "0x3f649DbFAFBE454940B8a82c5058b8d176dD3871",
+    email: "palms@greenpill.builders",
+    type: "private",
+    registryDate: new Date(),
+  }
 };

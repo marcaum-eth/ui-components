@@ -224,6 +224,8 @@ export default {
   // safelist: [".dark"],
   content: ["./.storybook/**/*.{js,jsx,ts,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    // Need to use extend to override the default primary theme
+    extend: {
     colors: {
       gray: {
         0: "rgb(var(--gray-0))",
@@ -573,6 +575,7 @@ export default {
           to: { height: "0", opacity: "0" },
         },
       },
+    },
     },
   },
   plugins: [
